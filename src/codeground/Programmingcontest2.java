@@ -32,7 +32,8 @@ public class Programmingcontest2 {
 
 			int i;	
 			int result = 0;			
-
+			int value =0;
+			
 			for(i=0;i<N;i++)
 			{
 				arr1[i]=sc.nextInt();
@@ -40,11 +41,18 @@ public class Programmingcontest2 {
 			
 			Arrays.sort(arr1);
 			
-			int value=arr1[N-1]+1-N;
-
+			//다음 스코어는 마지막값에 1더하는거보다 더 큰수가 나올수가 있음 만약 1 2 9 9 9같으면 최종값이 14이나옴
+			int[] nextScore = new int[N];
+			for (i=0; i<N; i++) {
+				nextScore[i] = arr1[i] + (N - i);
+				if (nextScore[i] > value){
+					value = nextScore[i];
+				}
+			}
+			
 			for(i=N-1;i>=0;i--)
 			{
-				if(arr1[i]<value)
+				if(arr1[i]<value-N)
 				{	
 					break;
 				}
