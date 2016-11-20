@@ -1,7 +1,9 @@
 package codeground;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.FileInputStream;
+
 
 //class Solution {
 public class Programmingcontest2 {
@@ -25,13 +27,35 @@ public class Programmingcontest2 {
 		TC = sc.nextInt();        
 		for(test_case = 1; test_case <= TC; test_case++) {
 			// 이 부분에서 알고리즘 프로그램을 작성하십시오.
-     
-     
-     
+	        int N=sc.nextInt();
+			int[] arr1 = new int[N];
+
+			int i;	
+			int result = 0;			
+
+			for(i=0;i<N;i++)
+			{
+				arr1[i]=sc.nextInt();
+			}
+			
+			Arrays.sort(arr1);
+			
+			int value=arr1[N-1]+1-N;
+
+			for(i=N-1;i>=0;i--)
+			{
+				if(arr1[i]<value)
+				{	
+					break;
+				}
+				result++;
+			}		
+
+	         
 
 			// 이 부분에서 정답을 출력하십시오.
 			System.out.println("Case #" + test_case);
-			
+	        System.out.println(result);			
 		}
 	}
 }
